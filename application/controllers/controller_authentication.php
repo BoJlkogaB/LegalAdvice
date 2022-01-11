@@ -2,31 +2,26 @@
 
 class Controller_Authentication extends Controller
 {
-    public function __construct()
-    {
-        $this->model = new Model_Authentication();
-        $this->view = new View();
-    }
-
     function action_index()
     {
-        $this->view->generate('view_authentication.php', 'view_template.php');
+        $this->set_data
+        (
+            [
+                'TEMPLATE' => 'STANDARD',
+            ]
+        );
+        $this->get_view()->generate('view_authentication.php', 'view_template.php', $this->get_data());
     }
 
     function action_check_account()
     {
-        require_once($_SERVER["DOCUMENT_ROOT"] . '/scripts/php/dbConnect.php');
-
-        $this->data =
-            [
+        $this->set_data
+            ([
                 'email' => $_POST['email'],
                 'password' => $_POST['password']
-            ];
+            ]);
 
-        $model = $this->model;
-        $view = $this->view;
-
-        $user = $model->check_authentication($this->data, $DBconnect);
+        $user = $this->get_model()->check_authentication($this->get_data());
 
         if ($user) {
             $_SESSION['user_id'] = $user['id'];

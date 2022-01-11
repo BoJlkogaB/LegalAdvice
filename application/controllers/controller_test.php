@@ -2,12 +2,6 @@
 
 class Controller_Test extends Controller
 {
-    public function __construct()
-    {
-        $this->model = new Model_Test();
-        $this->view = new View();
-    }
-
     function action_index()
     {
 //        $options = [
@@ -17,9 +11,15 @@ class Controller_Test extends Controller
 //        echo $hash.'</br>';
 //        echo password_verify("SecretUserPassword789!", $hash);
 
-
-        require_once($_SERVER["DOCUMENT_ROOT"] . '/scripts/php/dbConnect.php');
-//        $this->data = $this->model->test($DBconnect);
-        $this->view->generate('view_test.php', 'view_template.php');
+//        $database = new MySQL_db();
+//        $this->set_model('Model_Test');
+//        $this->set_data
+//        (
+//            [
+//                'TEMPLATE' => 'ADMIN',
+//                'DATA' => $this->get_model()->test($database)
+//            ]
+//        );
+        $this->get_view()->generate('view_test.php', 'view_template.php', $this->get_data());
     }
 }
