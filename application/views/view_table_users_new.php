@@ -4,19 +4,24 @@
 <!--            <pre>-->
 <!--            --><?php //echo var_dump($data) ?>
 <!--            </pre>-->
-            <h4 class="mb-3">Пользователь № <?= $data['DATA']['id'] ?> - <?= $data['DATA']['email'] ?></h4>
-            <form class="needs-validation" novalidate="" method="post" action="/table_users/update/">
+            <h4 class="mb-3">Новый пользователь</h4>
+            <form class="needs-validation" novalidate="" method="post" action="/table_users/create/">
                 <div class="row g-3">
-                    <div class="d-none">
-                        <input type="text" name="id" value="<?= $data['DATA']['id'] ?>">
+                    <div class="col-12">
+                        <label for="email" class="form-label">Почта</label>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="user@example.com"
+                               required="">
+                        <div class="invalid-feedback">
+                            Пожалуйста, введите адрес электронной почты.
+                        </div>
                     </div>
 
                     <div class="col-12">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" name="email" id="email" placeholder="user@example.com"
-                               required="" value="<?= $data['DATA']['email'] ?>">
+                        <label for="password" class="form-label">Пароль</label>
+                        <input type="password" class="form-control" name="password" id="password"
+                               required="">
                         <div class="invalid-feedback">
-                            Пожалуйста, введите адрес электронной почты.
+                            Пожалуйста, введите пароль.
                         </div>
                     </div>
 
@@ -32,23 +37,11 @@
                             Пожалуйста, выберите роль.
                         </div>
                     </div>
-
-                    <div class="col-12">
-                        <p class="form-label">Дата создания</p>
-                        <p class="form-control"><?= $data['DATA']['created_at'] ?></p>
-                    </div>
-
-                    <div class="col-12">
-                        <p class="form-label">Дата обновления</p>
-                        <p class="form-control"><?= $data['DATA']['updated_at'] ?></p>
-                    </div>
                 </div>
 
                 <hr class="my-4">
 
-                <input class="btn btn-success btn-lg btn-block" type="submit" value="Изменить">
-                <a class="btn btn-danger btn-lg btn-block text-white"
-                   href="/table_users/delete/?id=<?= $data['DATA']['id'] ?>">Удалить</a>
+                <input class="btn btn-success btn-lg btn-block" type="submit" value="Создать">
             </form>
         </div>
     </div>

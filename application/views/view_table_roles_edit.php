@@ -4,7 +4,7 @@
 <!--            <pre>-->
 <!--            --><?php //echo var_dump($data) ?>
 <!--            </pre>-->
-            <h4 class="mb-3">Пользователь № <?= $data['DATA']['id'] ?> - <?= $data['DATA']['email'] ?></h4>
+            <h4 class="mb-3">Роль № <?= $data['DATA']['id'] ?> - <?= $data['DATA']['name'] ?></h4>
             <form class="needs-validation" novalidate="" method="post" action="/table_users/update/">
                 <div class="row g-3">
                     <div class="d-none">
@@ -12,24 +12,11 @@
                     </div>
 
                     <div class="col-12">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" name="email" id="email" placeholder="user@example.com"
-                               required="" value="<?= $data['DATA']['email'] ?>">
+                        <label for="name" class="form-label">Наименование</label>
+                        <input type="text" class="form-control" name="name" id="name" placeholder="user@example.com"
+                               required="" value="<?= $data['DATA']['name'] ?>">
                         <div class="invalid-feedback">
-                            Пожалуйста, введите адрес электронной почты.
-                        </div>
-                    </div>
-
-                    <!--                        Сделать вывод списка ролей, где текущая роль - первая-->
-                    <div class="col-12">
-                        <label for="role" class="form-label">Роль</label>
-                        <select class="form-select" name="role" id="role" required="">
-                            <?php foreach ($data['ROLES'] as $item): ?>
-                                <option value="<?= $item['id'] ?>"><?= $item['name'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                        <div class="invalid-feedback">
-                            Пожалуйста, выберите роль.
+                            Пожалуйста, введите наименование роли.
                         </div>
                     </div>
 

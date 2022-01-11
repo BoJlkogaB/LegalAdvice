@@ -24,29 +24,27 @@
     <!--            <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="3090" height="1304"-->
     <!--                    style="display: block; height: 652px; width: 1545px;"></canvas>-->
 
-    <h2>Таблица "Пользователи"</h2>
+    <h2>Таблица "Роли"</h2>
     <div class="table-responsive">
         <table class="table table-striped table-sm">
             <thead>
             <tr>
                 <th>#</th>
-                <th>Почта</th>
-                <th>Роль</th>
+                <th>Наименование</th>
                 <th>Дата создания</th>
                 <th>Дата изменения</th>
-                <th><a class="text-decoration-none" href="/table_users/new/">Создать</a></th>
+                <th><a class="text-decoration-none" href="/table_roles/new/">Создать</a></th>
             </tr>
             </thead>
             <tbody>
             <?php foreach ($data['DATA'] as $item): ?>
                 <tr>
                     <td><?= $item['id'] ?></td>
-                    <td><?= $item['email'] ?></td>
                     <td><?= $item['name'] ?></td>
                     <td><?= $item['created_at'] ?></td>
                     <td><?= $item['updated_at'] ?></td>
                     <td><a class="text-decoration-none"
-                           href="/table_users/edit/?id=<?= $item['id'] ?>">Редактировать</a>
+                           href="/table_roles/edit/?id=<?= $item['id'] ?>">Редактировать</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
