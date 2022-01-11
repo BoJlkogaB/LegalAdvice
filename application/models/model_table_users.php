@@ -28,14 +28,45 @@ class Model_Table_Users extends Model
         return $database->get_fetch($query, $params);
     }
 
+    public function create_item($data, IDatabase $database)
+    {
+        $query = "INSERT INTO `Users` (`email`, `password`, `role_id`, `created_at`, `updated_at`)
+                    VALUES (:email, :password, :role_id, :created_at, :updated_at)";
+
+        $params =
+            [
+                'email' => $data['email'],
+                'password' => password_hash($data['password'],PASSWORD_BCRYPT, ['cost' => 12]),
+                'role_id' => $data['role_id'],
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s"),
+            ];
+
+        return $database->request($query, $params);
+    }
+
     public function update_item($data, IDatabase $database)
     {
         $query = "UPDATE `Users` SET `email` = :email, `role_id` = :role_id, `updated_at` = :updated_at WHERE `id` = :id";
         $params =
             [
+                'id' => $data['id'],
+                'email' => $data['email'],
+                'role_id' => $data['role_id'],
+                'updated_at' => date("Y-m-d H:i:s"),
+            ];
+
+        return $database->request($query, $params);
+    }
+
+    public function delete_item($data, IDatabase $database)
+    {
+        $query = "DELETE FROM `Users` WHERE `id` = :id";
+        $params =
+            [
                 'id' => $data['id']
             ];
 
-        return $database->get_fetch($query, $params);
+        return $database->request($query, $params);
     }
 }

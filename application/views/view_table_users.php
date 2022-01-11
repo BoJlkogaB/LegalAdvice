@@ -25,9 +25,6 @@
     <!--                    style="display: block; height: 652px; width: 1545px;"></canvas>-->
 
     <h2>Таблица "Пользователи"</h2>
-    <!--            <pre>-->
-    <!--            --><?php //echo var_dump($data) ?>
-    <!--            </pre>-->
     <div class="table-responsive">
         <table class="table table-striped table-sm">
             <thead>
