@@ -19,7 +19,7 @@
                 <ul>
                     <li><a href="/main/" title>Home</a></li>
                     <li><a href="/about/" title>About Us</a></li>
-                    <li><a href="/services/" title>Services</a></li>
+                    <li><a href="/services_info/" title>Services</a></li>
                     <li><a href="/contact/" title>Contact</a></li>
                     <li><a href="/authentication/" title>Sign In</a></li>
                 </ul>
@@ -80,15 +80,15 @@
                         <div class="menu-widget">
                             <h4>Services</h4>
                             <ul>
-                                <li><a href="/services/" title>Judicial
+                                <li><a href="/services_info/" title>Judicial
                                         protection</a></li>
-                                <li><a href="/services/" title>Lawyer
+                                <li><a href="/services_info/" title>Lawyer
                                         consulting</a></li>
-                                <li><a href="/services/" title>Debt
+                                <li><a href="/services_info/" title>Debt
                                         collection</a></li>
-                                <li><a href="/services/" title>Protection of
+                                <li><a href="/services_info/" title>Protection of
                                         rights</a></li>
-                                <li><a href="/services/" title>Real estate
+                                <li><a href="/services_info/" title>Real estate
                                         lawyer</a></li>
                             </ul>
                         </div>

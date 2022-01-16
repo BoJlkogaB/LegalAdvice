@@ -13,4 +13,12 @@ trait AdminViewTrait
         );
     }
 
+    public function useSimpleAdminView($view = 'index')
+    {
+        $this->getView()->generate(
+          'table/'.$view.'.php',
+          'templates/admin/template.php'
+        );
+    }
+
 }

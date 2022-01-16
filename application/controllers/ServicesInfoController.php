@@ -5,13 +5,13 @@ namespace Controllers;
 use Controllers\Traits\StandardViewTrait;
 use Core\Controller;
 
-class ServicesController extends Controller
+class ServicesInfoController extends Controller
 {
 
     use StandardViewTrait;
 
     public function indexAction()
     {
-        $this->useStandardView('services');
+        $this->useStandardView('services_info');
     }
 }

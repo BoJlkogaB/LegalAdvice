@@ -9,7 +9,8 @@ class Route
         session_start();
         $routes = explode('/', $_SERVER['REQUEST_URI']);
         static::getModel($routes[1]);
-        static::getAction($routes[2], static::getController($routes[1]));
+        static::getAction(static::getController($routes[1]),
+          count($routes) <= 2 ? null : $routes[2]);
     }
 
     public static function ErrorPage404()
@@ -37,7 +38,7 @@ class Route
         return new $controllerName;
     }
 
-    private static function getAction($route, $controller)
+    private static function getAction($controller, $route)
     {
         $action = $route
           ? $route.'Action'
