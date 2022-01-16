@@ -3,13 +3,14 @@ namespace Controllers\Traits;
 
 use Core\Model;
 use ReflectionClass;
+use Traits;
 
 trait ModelTrait
 {
 
-    private Model $model;
+    use Traits\ModelNameTrait;
 
-    private string $modelName;
+    private Model $model;
 
     public function getModel(): Model
     {
@@ -20,16 +21,6 @@ trait ModelTrait
     {
         $model = 'Models\\'.$model;
         $this->model = new $model();
-    }
-
-    public function getModelName(): string
-    {
-        return $this->modelName;
-    }
-
-    public function setModelName($modelName)
-    {
-        $this->modelName = $modelName;
     }
 
     public function useModel()

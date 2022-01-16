@@ -2,13 +2,14 @@
 namespace Controllers;
 
 use Core\Controller;
+use Traits as GlobalTraits;
 
 class RolesController extends Controller
 {
 
     use Traits\CRUDTrait;
     use Traits\ModelTrait;
-    use Traits\DataTrait;
+    use GlobalTraits\DataTrait;
 
     public function beforeAction()
     {

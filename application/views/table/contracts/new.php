@@ -1,4 +1,4 @@
-<?php /** @var array $data * */ ?>
+<?php $data = $this->getData() ?>
 <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
     <div class="row g-3 mt-3">
         <div class="col-12">

@@ -6,10 +6,11 @@ trait AdminViewTrait
 
     public function useAdminView($view = 'index')
     {
+        $this->getView()->setData($this->getData());
+        $this->getView()->setModelName($this->getModelName());
         $this->getView()->generate(
           'table/'.$this->getModelName().'/'.$view.'.php',
-          'templates/admin/template.php',
-          $this->getData()
+          'templates/admin/template.php'
         );
     }
 
