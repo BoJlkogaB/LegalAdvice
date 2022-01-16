@@ -4,7 +4,7 @@
     <input type="email" class="form-control" name="email"
            id="email" placeholder="user@example.com"
            required=""
-           value="<?= $data['DATA']['email'] ?>">
+           value="<?= $data['DATA']['email'] ?? null ?>">
     <div class="invalid-feedback">
         Пожалуйста, введите адрес электронной почты.
     </div>

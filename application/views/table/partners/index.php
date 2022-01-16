@@ -4,31 +4,13 @@
         <h1 class="h2"></h1>
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group mr-2">
-                <button type="button" class="btn btn-sm btn-outline-secondary">
-                    Word
-                </button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">
-                    Excel
-                </button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">
-                    PDF
-                </button>
+                <?php
+                $this->render('downloadWord');
+                $this->render('downloadExcel');
+                $this->render('downloadPdf');
+                ?>
             </div>
-            <button type="button"
-                    class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                     viewBox="0 0 24 24" fill="none"
-                     stroke="currentColor" stroke-width="2"
-                     stroke-linecap="round" stroke-linejoin="round"
-                     class="feather feather-calendar">
-                    <rect x="3" y="4" width="18" height="18" rx="2"
-                          ry="2"></rect>
-                    <line x1="16" y1="2" x2="16" y2="6"></line>
-                    <line x1="8" y1="2" x2="8" y2="6"></line>
-                    <line x1="3" y1="10" x2="21" y2="10"></line>
-                </svg>
-                All time
-            </button>
+            <?php $this->render('calendar') ?>
         </div>
     </div>
 
@@ -45,7 +27,8 @@
                 <th>Телефон</th>
                 <th>Дата создания</th>
                 <th>Дата изменения</th>
-                <th><a class="text-decoration-none" href="/partners/new/">Создать</a>
+                <th><a class="text-decoration-none"
+                       href="/<?= $this->getModelName() ?>/new/">Создать</a>
                 </th>
             </tr>
             </thead>
@@ -58,7 +41,7 @@
                     <td><?= $item['created_at'] ?></td>
                     <td><?= $item['updated_at'] ?></td>
                     <td><a class="text-decoration-none"
-                           href="/partners/edit/?id=<?= $item['id'] ?>">Редактировать</a>
+                           href="/<?= $this->getModelName() ?>/edit/?id=<?= $item['id'] ?>">Редактировать</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

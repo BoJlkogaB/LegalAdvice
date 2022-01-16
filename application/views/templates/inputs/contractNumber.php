@@ -5,7 +5,7 @@
     <input type="text" class="form-control" name="number"
            id="number"
            required=""
-           value="<?= $data['DATA']['number'] ?>">
+           value="<?= $data['DATA']['number'] ?? null ?>">
     <div class="invalid-feedback">
         Пожалуйста, введите номер договора.
     </div>
