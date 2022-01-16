@@ -1,0 +1,4 @@
+<?php
+return [
+  'DATABASE' => 'MySQL',
+];
