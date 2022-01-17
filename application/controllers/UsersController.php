@@ -20,7 +20,7 @@ class UsersController extends Controller
 
     public function editAction()
     {
-        $roles = new Roles();
+        $roles = new Roles('Roles');
         $this->preparedEditAction(true, [
           'ROLES' => $roles->getNames($this->getDatabase()),
         ]);
@@ -28,7 +28,7 @@ class UsersController extends Controller
 
     public function newAction()
     {
-        $roles = new Roles();
+        $roles = new Roles('Roles');
         $this->preparedNewAction([
           'ROLES' => $roles->getNames($this->getDatabase()),
         ]);

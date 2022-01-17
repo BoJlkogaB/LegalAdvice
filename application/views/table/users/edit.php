@@ -11,8 +11,6 @@
                     $this->render('invisibleID');
                     $this->render('email');
                     $this->render('rolesList');
-                    $this->render('createdAt');
-                    $this->render('updatedAt');
                     ?>
                 </div>
                 <hr class="my-4">

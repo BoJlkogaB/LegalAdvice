@@ -20,7 +20,7 @@ trait ModelTrait
     public function setModel($model)
     {
         $model = 'Models\\'.$model;
-        $this->model = new $model();
+        $this->model = new $model($this->getModelName());
     }
 
     public function useModel()

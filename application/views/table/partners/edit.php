@@ -11,8 +11,6 @@
                     $this->render('invisibleID');
                     $this->render('name');
                     $this->render('phone');
-                    $this->render('createdAt');
-                    $this->render('updatedAt');
                     ?>
                 </div>
                 <hr class="my-4">

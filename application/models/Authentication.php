@@ -7,6 +7,16 @@ use Database\DatabaseInterface;
 class Authentication extends Model
 {
 
+    use Traits\CRUDTrait;
+
+    public function __construct($modelName = '')
+    {
+        parent::__construct($modelName);
+        $this->setRequestData([
+          $this->getModelName() => [],
+        ]);
+    }
+
     public function checkAuthentication($data, DatabaseInterface $database)
     {
         $query = "SELECT `id`, `email`, `password` FROM `Users` WHERE `email` = :email";
@@ -20,31 +30,6 @@ class Authentication extends Model
         } else {
             return false;
         }
-    }
-
-    public function getData(DatabaseInterface $database)
-    {
-        // TODO: Implement get_data() method.
-    }
-
-    public function getItem($id, DatabaseInterface $database)
-    {
-        // TODO: Implement get_item() method.
-    }
-
-    public function createItem($data, DatabaseInterface $database)
-    {
-        // TODO: Implement create_item() method.
-    }
-
-    public function updateItem($data, DatabaseInterface $database)
-    {
-        // TODO: Implement update_item() method.
-    }
-
-    public function deleteItem($id, DatabaseInterface $database)
-    {
-        // TODO: Implement delete_item() method.
     }
 
 }

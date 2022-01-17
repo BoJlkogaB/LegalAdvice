@@ -3,75 +3,29 @@ namespace Models;
 
 use Core\Model;
 use Database\DatabaseInterface;
+use Models\Traits;
 
 class Users extends Model
 {
 
+    use Traits\CRUDTrait;
+
+    public function __construct($modelName = '')
+    {
+        parent::__construct($modelName);
+        $this->setRequestData([
+          $this->getModelName() => ['id', 'email', 'role_id',],
+        ]);
+    }
+
     public function getData(DatabaseInterface $database)
     {
-        $query = "SELECT `Users`.`id`, `Users`.`email`, `Users`.`created_at`, `Users`.`updated_at`, `Roles`.`name`
-                    FROM `Users`
-                    LEFT JOIN `Roles`
-                    ON `Roles`.`id` = `Users`.`role_id`";
+        $query = [
+          $this->getModelName() => ['id', 'email'],
+          'Roles' => ['name', 'role_id'],
+        ];
 
-        return $database->fetchAll($query);
-    }
-
-    public function getItem($id, DatabaseInterface $database)
-    {
-        $query = "SELECT `Users`.`id`, `Users`.`email`, `Users`.`created_at`, `Users`.`updated_at`, `Roles`.`name`
-                    FROM `Users`
-                    LEFT JOIN `Roles`
-                    ON `Roles`.`id` = `Users`.`role_id`
-                    WHERE `Users`.`id` = :id";
-        $params =
-          [
-            'id' => $id,
-          ];
-
-        return $database->fetch($query, $params);
-    }
-
-    public function createItem($data, DatabaseInterface $database)
-    {
-        $query = "INSERT INTO `Users` (`email`, `password`, `role_id`, `created_at`, `updated_at`)
-                    VALUES (:email, :password, :role_id, :created_at, :updated_at)";
-        $params =
-          [
-            'email' => $data['email'],
-            'password' => password_hash($data['password'], PASSWORD_BCRYPT,
-              ['cost' => 12]),
-            'role_id' => $data['role_id'],
-            'created_at' => date("Y-m-d H:i:s"),
-            'updated_at' => date("Y-m-d H:i:s"),
-          ];
-
-        return $database->query($query, $params);
-    }
-
-    public function updateItem($data, DatabaseInterface $database)
-    {
-        $query = "UPDATE `Users` SET `email` = :email, `role_id` = :role_id, `updated_at` = :updated_at WHERE `id` = :id";
-        $params =
-          [
-            'id' => $data['id'],
-            'email' => $data['email'],
-            'role_id' => $data['role_id'],
-            'updated_at' => date("Y-m-d H:i:s"),
-          ];
-
-        return $database->query($query, $params);
-    }
-
-    public function deleteItem($id, DatabaseInterface $database)
-    {
-        $query = "DELETE FROM `Users` WHERE `id` = :id";
-        $params =
-          [
-            'id' => $id,
-          ];
-
-        return $database->query($query, $params);
+        return $database->fetchAll($this->getSelectQuery($query));
     }
 
 }

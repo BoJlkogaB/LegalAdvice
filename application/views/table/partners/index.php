@@ -25,8 +25,6 @@
                 <th>#</th>
                 <th>Имя</th>
                 <th>Телефон</th>
-                <th>Дата создания</th>
-                <th>Дата изменения</th>
                 <th><a class="text-decoration-none"
                        href="/<?= $this->getModelName() ?>/new/">Создать</a>
                 </th>
@@ -38,8 +36,6 @@
                     <td><?= $item['id'] ?></td>
                     <td><?= $item['name'] ?></td>
                     <td><?= $item['phone'] ?></td>
-                    <td><?= $item['created_at'] ?></td>
-                    <td><?= $item['updated_at'] ?></td>
                     <td><a class="text-decoration-none"
                            href="/<?= $this->getModelName() ?>/edit/?id=<?= $item['id'] ?>">Редактировать</a>
                     </td>

@@ -7,12 +7,12 @@ use PDOException;
 class MySQL implements DatabaseInterface
 {
 
-    private PDO $connect;
+    private PDO $connection;
 
     public function __construct()
     {
         try {
-            $this->connect = new PDO('mysql:host=localhost;dbname=LegalAdvice',
+            $this->connection = new PDO('mysql:host=localhost;dbname=LegalAdvice',
               'root', '28811310Dd');
         } catch (PDOException $e) {
             echo "Error!: ".$e->getMessage();
@@ -21,21 +21,21 @@ class MySQL implements DatabaseInterface
         }
     }
 
-    public function connect(): PDO
+    public function connection(): PDO
     {
-        return $this->connect;
+        return $this->connection;
     }
 
     public function query($query, $params = null): bool
     {
-        $stmt = $this->connect->prepare($query);
+        $stmt = $this->connection->prepare($query);
 
         return $stmt->execute($params);
     }
 
     public function fetch($query, $params = null)
     {
-        $stmt = $this->connect->prepare($query);
+        $stmt = $this->connection->prepare($query);
         $stmt->execute($params);
 
         return $stmt->fetch(PDO::FETCH_LAZY);
@@ -43,10 +43,23 @@ class MySQL implements DatabaseInterface
 
     public function fetchAll($query, $params = null)
     {
-        $stmt = $this->connect->prepare($query);
+        $stmt = $this->connection->prepare($query);
         $stmt->execute($params);
 
         return $stmt->fetchAll(PDO::FETCH_NAMED);
+    }
+
+    public function quote($input): string
+    {
+        // Реализовать экранирование под различные СУБД
+        return $this->connection->quote($input);
+    }
+
+    public function quoteIdentifier($input): string
+    {
+        $slashed = addslashes($input);
+
+        return "`{$slashed}`";
     }
 
 }

@@ -20,7 +20,7 @@ class ContractsController extends Controller
 
     public function editAction()
     {
-        $roles = new Partners();
+        $roles = new Partners('Partners');
         $this->preparedEditAction(true, [
           'PARTNERS' => $roles->getNames($this->getDatabase()),
         ]);
@@ -28,7 +28,7 @@ class ContractsController extends Controller
 
     public function newAction()
     {
-        $roles = new Partners();
+        $roles = new Partners('Partners');
         $this->preparedNewAction([
           'PARTNERS' => $roles->getNames($this->getDatabase()),
         ]);

@@ -4,7 +4,7 @@
     <select class="form-select" name="partner" id="partner"
             required="">
         <?php foreach ($data['PARTNERS'] as $item) {
-            echo $item['name'] == $data['DATA']['name']
+            echo $item['id'] == $data['DATA']['partner_id']
               ? '<option value="'.$item["id"].'" selected>'.$item["name"].'</option>'
               : '<option value="'.$item["id"].'">'.$item["name"].'</option>';
         } ?>

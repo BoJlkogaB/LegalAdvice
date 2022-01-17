@@ -2,34 +2,18 @@
 namespace Models;
 
 use Core\Model;
-use Database\DatabaseInterface;
 
 class Test extends Model
 {
 
-    public function getData(DatabaseInterface $database)
-    {
-        // TODO: Implement get_data() method.
-    }
+    use Traits\CRUDTrait;
 
-    public function getItem($id, DatabaseInterface $database)
+    public function __construct($modelName = '')
     {
-        // TODO: Implement get_item() method.
-    }
-
-    public function createItem($data, DatabaseInterface $database)
-    {
-        // TODO: Implement create_item() method.
-    }
-
-    public function updateItem($data, DatabaseInterface $database)
-    {
-        // TODO: Implement update_item() method.
-    }
-
-    public function deleteItem($id, DatabaseInterface $database)
-    {
-        // TODO: Implement delete_item() method.
+        parent::__construct($modelName);
+        $this->setRequestData([
+          $this->getModelName() => [],
+        ]);
     }
 
 }

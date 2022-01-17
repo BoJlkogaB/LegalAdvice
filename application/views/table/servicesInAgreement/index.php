@@ -17,14 +17,14 @@
     <!--            <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="3090" height="1304"-->
     <!--                    style="display: block; height: 652px; width: 1545px;"></canvas>-->
 
-    <h2>Таблица "Пользователи"</h2>
+    <h2>Таблица "Услуги в договоре"</h2>
     <div class="table-responsive">
         <table class="table table-striped table-sm">
             <thead>
             <tr>
                 <th>#</th>
-                <th>Почта</th>
-                <th>Роль</th>
+                <th>Номер договора</th>
+                <th>Наименование услуги</th>
                 <th><a class="text-decoration-none"
                        href="/<?= $this->getModelName() ?>/new/">Создать</a>
                 </th>
@@ -34,7 +34,7 @@
             <?php foreach ($data['DATA'] as $item): ?>
                 <tr>
                     <td><?= $item['id'] ?></td>
-                    <td><?= $item['email'] ?></td>
+                    <td><?= $item['number'] ?></td>
                     <td><?= $item['name'] ?></td>
                     <td><a class="text-decoration-none"
                            href="/<?= $this->getModelName() ?>/edit/?id=<?= $item['id'] ?>">Редактировать</a>

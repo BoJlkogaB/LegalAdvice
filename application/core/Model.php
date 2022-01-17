@@ -2,9 +2,17 @@
 namespace Core;
 
 use Database\DatabaseInterface;
+use Traits;
 
 abstract class Model
 {
+
+    use Traits\ModelNameTrait;
+
+    public function __construct($modelName)
+    {
+        $this->setModelName($modelName);
+    }
 
     abstract public function getData(DatabaseInterface $database);
 
