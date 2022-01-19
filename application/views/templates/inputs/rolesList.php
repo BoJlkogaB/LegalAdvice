@@ -1,7 +1,7 @@
 <?php $data = $this->getData() ?>
 <div class="col-12">
-    <label for="role" class="form-label">Роль</label>
-    <select class="form-select" name="role" id="role"
+    <label for="role_id" class="form-label">Роль</label>
+    <select class="form-select" name="role_id" id="role_id"
             required="">
         <?php foreach ($data['ROLES'] as $item) {
             echo $item['id'] == $data['DATA']['role_id']

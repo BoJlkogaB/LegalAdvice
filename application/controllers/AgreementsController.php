@@ -4,7 +4,7 @@ namespace Controllers;
 use Core\Controller;
 use Traits as GlobalTraits;
 
-class ServicesInAgreementController extends Controller
+class AgreementsController extends Controller
 {
 
     use Traits\CRUDTrait;
@@ -14,8 +14,10 @@ class ServicesInAgreementController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->setParamsDataFromPost(['id', 'agreement_id', 'service_id']);
-        $this->setModelList(['Agreements' => 'number', 'Services']);
+        $this->setParamsDataFromPost([
+          'id', 'customer_id', 'number', 'date_of_singing',
+        ]);
+        $this->setModelList(['Customers']);
     }
 
 }

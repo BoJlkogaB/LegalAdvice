@@ -12,7 +12,7 @@ class Authentication extends Model
     public function __construct($modelName = '')
     {
         parent::__construct($modelName);
-        $this->setRequestData([
+        $this->setParamsData([
           $this->getModelName() => [],
         ]);
     }

@@ -1,11 +1,22 @@
 <?php
 namespace Controllers\Traits;
 
+use Traits as GlobalTraits;
+
 trait CRUDTrait
 {
 
     use DatabaseTrait;
     use AdminViewTrait;
+    use PreparedActionsTrait;
+    use ExtraModelListItemsTrait;
+    use GlobalTraits\ParamsDataTrait;
+
+    public function beforeAction()
+    {
+        $this->useModel();
+        $this->useDatabase();
+    }
 
     public function indexAction()
     {
@@ -15,52 +26,24 @@ trait CRUDTrait
         $this->useAdminView();
     }
 
-    public function preparedNewAction(array $options = [])
+    public function newAction()
     {
-        $data = [];
-        if ($options) {
-            foreach ($options as $key => $option) {
-                $data[$key] = $option;
-            }
-        }
-        $this->setData($data);
-        $this->useAdminView('new');
+        $this->preparedNewAction($this->generationModelList());
     }
 
-    public function preparedCreateAction(array $data)
+    public function createAction()
     {
-        $this->setData($data);
-        $this->getModel()->createItem($this->getData(), $this->getDatabase());
-        if ($_SERVER['HTTP_REFERER']) {
-            header('Location: /'.$this->getModelName().'/');
-        }
+        $this->preparedCreateAction($this->getParamsData());
     }
 
-    public function preparedEditAction(
-      bool $useData = true,
-      array $options = []
-    ) {
-        $data = [];
-        if ($useData) {
-            $data['DATA'] = $this->getModel()
-              ->getItem($_GET['id'], $this->getDatabase());
-        }
-        if ($options) {
-            foreach ($options as $key => $option) {
-                $data[$key] = $option;
-            }
-        }
-        $this->setData($data);
-        $this->useAdminView('edit');
+    public function editAction()
+    {
+        $this->preparedEditAction(true, $this->generationModelList());
     }
 
-    public function preparedUpdateAction(array $data)
+    public function updateAction()
     {
-        $this->setData($data);
-        $this->getModel()->updateItem($this->getData(), $this->getDatabase());
-        if (@$_SERVER['HTTP_REFERER'] != null) {
-            header("Location: ".$_SERVER['HTTP_REFERER']);
-        }
+        $this->preparedUpdateAction($this->getParamsData());
     }
 
     public function deleteAction()

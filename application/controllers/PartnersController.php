@@ -11,37 +11,10 @@ class PartnersController extends Controller
     use Traits\ModelTrait;
     use GlobalTraits\DataTrait;
 
-    public function beforeAction()
+    public function __construct()
     {
-        $this->useModel();
-        $this->useDatabase();
-    }
-
-    public function editAction()
-    {
-        $this->preparedEditAction();
-    }
-
-    public function newAction()
-    {
-        $this->preparedNewAction();
-    }
-
-    public function createAction()
-    {
-        $this->preparedCreateAction([
-          'name' => $_POST['name'],
-          'phone' => $_POST['phone'],
-        ]);
-    }
-
-    public function updateAction()
-    {
-        $this->preparedUpdateAction([
-          'id' => $_POST['id'],
-          'name' => $_POST['name'],
-          'phone' => $_POST['phone'],
-        ]);
+        parent::__construct();
+        $this->setParamsDataFromPost(['id', 'name', 'phone']);
     }
 
 }

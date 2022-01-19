@@ -13,7 +13,7 @@ class Contracts extends Model
     public function __construct($modelName = '')
     {
         parent::__construct($modelName);
-        $this->setRequestData([
+        $this->setParamsData([
           $this->getModelName() => ['id`, `partner_id`, `number`, `date_of_singing',],
         ]);
     }

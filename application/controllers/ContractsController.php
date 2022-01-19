@@ -2,7 +2,6 @@
 namespace Controllers;
 
 use Core\Controller;
-use Models\Partners;
 use Traits as GlobalTraits;
 
 class ContractsController extends Controller
@@ -12,45 +11,13 @@ class ContractsController extends Controller
     use Traits\ModelTrait;
     use GlobalTraits\DataTrait;
 
-    public function beforeAction()
+    public function __construct()
     {
-        $this->useModel();
-        $this->useDatabase();
-    }
-
-    public function editAction()
-    {
-        $roles = new Partners('Partners');
-        $this->preparedEditAction(true, [
-          'PARTNERS' => $roles->getNames($this->getDatabase()),
+        parent::__construct();
+        $this->setParamsDataFromPost([
+          'id', 'partner_id', 'number', 'date_of_singing',
         ]);
-    }
-
-    public function newAction()
-    {
-        $roles = new Partners('Partners');
-        $this->preparedNewAction([
-          'PARTNERS' => $roles->getNames($this->getDatabase()),
-        ]);
-    }
-
-    public function createAction()
-    {
-        $this->preparedCreateAction([
-          'partner_id' => $_POST['partner'],
-          'number' => $_POST['number'],
-          'date_of_singing' => $_POST['date_of_singing'],
-        ]);
-    }
-
-    public function updateAction()
-    {
-        $this->preparedUpdateAction([
-          'id' => $_POST['id'],
-          'partner_id' => $_POST['partner'],
-          'number' => $_POST['number'],
-          'date_of_singing' => $_POST['date_of_singing'],
-        ]);
+        $this->setModelList(['Partners']);
     }
 
 }

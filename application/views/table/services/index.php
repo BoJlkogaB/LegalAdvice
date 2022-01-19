@@ -17,16 +17,14 @@
     <!--            <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="3090" height="1304"-->
     <!--                    style="display: block; height: 652px; width: 1545px;"></canvas>-->
 
-    <h2>Таблица "Контракты"</h2>
+    <h2>Таблица "Услуги"</h2>
     <div class="table-responsive">
         <table class="table table-striped table-sm">
             <thead>
             <tr>
                 <th>#</th>
-                <th>Партнёр</th>
-                <th>Телефон</th>
-                <th>Номер контракта</th>
-                <th>Дата подписания</th>
+                <th>Наименование</th>
+                <th>Цена</th>
                 <th><a class="text-decoration-none"
                        href="/<?= $this->getModelName() ?>/new/">Создать</a>
                 </th>
@@ -37,9 +35,7 @@
                 <tr>
                     <td><?= $item['id'] ?></td>
                     <td><?= $item['name'] ?></td>
-                    <td><?= $item['phone'] ?></td>
-                    <td><?= $item['number'] ?></td>
-                    <td><?= $item['date_of_singing'] ?></td>
+                    <td><?= $item['price'] ?></td>
                     <td><a class="text-decoration-none"
                            href="/<?= $this->getModelName() ?>/edit/?id=<?= $item['id'] ?>">Редактировать</a>
                     </td>

@@ -2,17 +2,20 @@
 namespace Models;
 
 use Core\Model;
+use Database\DatabaseInterface;
+use Models\Traits;
 
-class Test extends Model
+class Customers extends Model
 {
 
     use Traits\CRUDTrait;
+    use Traits\GetNamesTrait;
 
     public function __construct($modelName = '')
     {
         parent::__construct($modelName);
         $this->setParamsData([
-          $this->getModelName() => [],
+          $this->getModelName() => ['id', 'name', 'phone',],
         ]);
     }
 

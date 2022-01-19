@@ -8,7 +8,6 @@ class Route
     {
         session_start();
         $routes = explode('/', $_SERVER['REQUEST_URI']);
-        static::getModel($routes[1]);
         static::getAction(static::getController($routes[1]),
           count($routes) <= 2 ? null : $routes[2]);
     }
@@ -48,18 +47,6 @@ class Route
             $controller->$action();
         } else {
             Route::ErrorPage404();
-        }
-    }
-
-    private static function getModel($route)
-    {
-        $modelName = $route
-          ? str_replace('_', '', $route).'Model'
-          : 'Main';
-        $modelFile = strtolower($modelName).'.php';
-        $modelPath = "application/models/".$modelFile;
-        if (file_exists($modelPath)) {
-            require_once "application/models/".$modelFile;
         }
     }
 

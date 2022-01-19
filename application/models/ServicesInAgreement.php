@@ -13,7 +13,7 @@ class ServicesInAgreement extends Model
     public function __construct($modelName = '')
     {
         parent::__construct($modelName);
-        $this->setRequestData([
+        $this->setParamsData([
           $this->getModelName() => ['id', 'service_id', 'agreement_id',],
         ]);
     }
