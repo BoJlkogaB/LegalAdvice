@@ -12,8 +12,4 @@ interface DatabaseInterface
 
     public function fetchAll($query, $params);
 
-    public function quote($input): string;
-
-    public function quoteIdentifier($input): string;
-
 }

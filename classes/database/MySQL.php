@@ -49,17 +49,4 @@ class MySQL implements DatabaseInterface
         return $stmt->fetchAll(PDO::FETCH_NAMED);
     }
 
-    public function quote($input): string
-    {
-        // Реализовать экранирование под различные СУБД
-        return $this->connection->quote($input);
-    }
-
-    public function quoteIdentifier($input): string
-    {
-        $slashed = addslashes($input);
-
-        return "`{$slashed}`";
-    }
-
 }
