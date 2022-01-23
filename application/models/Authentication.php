@@ -1,25 +1,24 @@
 <?php
 namespace Models;
 
-use Core\Model;
 use Database\DatabaseInterface;
+use Traits as GlobalTraits;
 
-class Authentication extends Model
+class Authentication
 {
 
-    use Traits\CRUDTrait;
+    use GlobalTraits\DataTrait;
+    use GlobalTraits\ModelNameTrait;
 
-    public function __construct($modelName = '')
+    public function __construct($modelName)
     {
-        parent::__construct($modelName);
-        $this->setParamsData([
-          $this->getModelName() => [],
-        ]);
+        //    TODO: Убрать передачу имени модели и вшить в стандартный функционал
+        $this->setModelName($modelName);
     }
 
-    public function checkAuthentication($data, DatabaseInterface $database)
+    public function checkAction($data, DatabaseInterface $database)
     {
-        $query = "SELECT `id`, `email`, `password` FROM `Users` WHERE `email` = :email";
+        $query = "SELECT `id`, `email`, `password`, `role_id` FROM `Users` WHERE `email` = :email";
         $params =
           [
             ':email' => $data['email'],

@@ -10,9 +10,9 @@ trait ModelTrait
 
     use Traits\ModelNameTrait;
 
-    private Model $model;
+    private $model;
 
-    public function getModel(): Model
+    public function getModel()
     {
         return $this->model;
     }

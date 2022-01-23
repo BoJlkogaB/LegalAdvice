@@ -14,6 +14,9 @@ class RolesController extends Controller
     public function __construct()
     {
         parent::__construct();
+        if ($_SESSION['USER']['ROLE'] != 1) {
+            header('Location: /tables/');
+        }
         $this->setParamsDataFromPost(['id', 'name']);
     }
 

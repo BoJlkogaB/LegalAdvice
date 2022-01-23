@@ -3,32 +3,45 @@ namespace Controllers;
 
 use Controllers\Traits\StandardViewTrait;
 use Core\Controller;
+use Traits as GlobalTraits;
 
 class AuthenticationController extends Controller
 {
 
     use StandardViewTrait;
+    use Traits\ModelTrait;
+    use Traits\DatabaseTrait;
+    use GlobalTraits\DataTrait;
+
+    public function beforeAction()
+    {
+        $this->useDatabase();
+        $this->setModelName('Authentication');
+    }
 
     public function indexAction()
     {
         $this->useStandardView('authentication');
     }
 
-    public function action_check_account()
+    public function checkAction()
     {
-        //        $this->setData
-        //        ([
-        //          'email' => $_POST['email'],
-        //          'password' => $_POST['password'],
-        //        ]);
-        //        $user = $this->getModel()->check_authentication($this->getData());
-        //        if ($user) {
-        //            $_SESSION['user_id'] = $user['id'];
-        //            $_SESSION['user_email'] = $user['email'];
-        //            header('Location: /main/');
-        //        } else {
-        //            header('Location: /authentication/');
-        //        }
+        $this->setModel($this->getModelName());
+        $this->setData
+        ([
+          'email' => $_POST['email'],
+          'password' => $_POST['password'],
+        ]);
+        $user = $this->getModel()
+          ->checkAction($this->getData(), $this->getDatabase());
+        if ($user) {
+            $_SESSION['USER']['ID'] = $user['id'];
+            $_SESSION['USER']['EMAIL'] = $user['email'];
+            $_SESSION['USER']['ROLE'] = $user['role_id'];
+            header('Location: /tables/');
+        } else {
+            header('Location: /authentication/');
+        }
     }
 
 }

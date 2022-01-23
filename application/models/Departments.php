@@ -2,7 +2,6 @@
 namespace Models;
 
 use Core\Model;
-use Database\DatabaseInterface;
 use Models\Traits;
 
 class Departments extends Model

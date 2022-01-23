@@ -11,6 +11,7 @@ abstract class Model
 
     public function __construct($modelName)
     {
+        //    TODO: Убрать передачу имени модели и вшить в стандартный функционал
         $this->setModelName($modelName);
     }
 

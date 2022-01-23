@@ -1,4 +1,8 @@
-<?php /** @var $contentView * */ ?>
+<?php /** @var $contentView * */
+if (empty($_SESSION['USER'])) {
+    header('Location: /main/');
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>

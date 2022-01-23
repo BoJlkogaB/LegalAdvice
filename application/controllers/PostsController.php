@@ -14,6 +14,9 @@ class PostsController extends Controller
     public function __construct()
     {
         parent::__construct();
+        if ($_SESSION['USER']['ROLE'] != 1 && $_SESSION['USER']['ROLE'] != 2 && $_SESSION['USER']['ROLE'] != 4) {
+            header('Location: /tables/');
+        }
         $this->setParamsDataFromPost(['id', 'name']);
         $this->setModelList(['Roles']);
     }

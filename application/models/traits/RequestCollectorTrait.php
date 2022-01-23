@@ -4,6 +4,8 @@ namespace Models\Traits;
 trait RequestCollectorTrait
 {
 
+    // TODO: Сделать из данного трейта класс на основе интерфейса и перенести в пространство имён \Database
+    //  и реализовать полиморфизм
     private function getSelectQuery($data, $search = false): string
     {
         if (count($data) == 1) {

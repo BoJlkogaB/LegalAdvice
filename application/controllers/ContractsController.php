@@ -14,6 +14,9 @@ class ContractsController extends Controller
     public function __construct()
     {
         parent::__construct();
+        if ($_SESSION['USER']['ROLE'] != 1 && $_SESSION['USER']['ROLE'] != 2 && $_SESSION['USER']['ROLE'] != 3) {
+            header('Location: /tables/');
+        }
         $this->setParamsDataFromPost([
           'id', 'partner_id', 'number', 'date_of_singing',
         ]);

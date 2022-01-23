@@ -31,7 +31,7 @@ class Employees extends Model
             'date_of_dismissal',
           ],
           'Posts' => ['name', 'post_id'],
-          'Department' => ['name', 'department_id'],
+          'Departments' => ['name', 'department_id'],
         ];
 
         return $database->fetchAll($this->getSelectQuery($query));

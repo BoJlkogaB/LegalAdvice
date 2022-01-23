@@ -2,7 +2,7 @@
     <div class="container d-flex flex-column justify-content-center align-items-center">
         <h1 class="mb-5 mt-2 mt-sm-5 h3 text-white">Authentication</h1>
         <form class="d-flex flex-column" method="post"
-              action="/authentication/check_account/">
+              action="/authentication/check/">
             <div class="mb-3">
                 <label for="exampleInputLogin"
                        class="form-label text-white mb-1">Login:</label>
