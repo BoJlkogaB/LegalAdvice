@@ -13,7 +13,7 @@ class MySQL implements DatabaseInterface
     {
         try {
             $this->connection = new PDO('mysql:host=localhost;dbname=LegalAdvice',
-              'root', '28811310Dd');
+              'root', 'root');
         } catch (PDOException $e) {
             echo "Error!: ".$e->getMessage();
             //  Убрать die() и передать обработку ошибок клиентской части

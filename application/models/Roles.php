@@ -14,7 +14,7 @@ class Roles extends Model
     {
         parent::__construct($modelName);
         $this->setParamsData([
-          $this->getModelName() => ['id`, `name'],
+          $this->getModelName() => ['id', 'name'],
         ]);
     }
 

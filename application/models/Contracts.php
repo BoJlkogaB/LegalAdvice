@@ -14,7 +14,7 @@ class Contracts extends Model
     {
         parent::__construct($modelName);
         $this->setParamsData([
-          $this->getModelName() => ['id`, `partner_id`, `number`, `date_of_singing',],
+          $this->getModelName() => ['id', 'partner_id', 'number', 'date_of_singing',],
         ]);
     }
 
