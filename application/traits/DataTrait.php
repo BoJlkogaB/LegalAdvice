@@ -4,6 +4,7 @@ namespace Traits;
 trait DataTrait
 {
 
+    //    TODO: вынести в класс
     private array $data;
 
     public function getData(): array

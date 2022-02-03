@@ -4,6 +4,7 @@ namespace Traits;
 trait ParamsDataTrait
 {
 
+    //    TODO: вынести в класс
     private array $paramsData;
 
     public function setParamsData($paramsData)
