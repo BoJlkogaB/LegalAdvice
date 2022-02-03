@@ -22,7 +22,7 @@ trait DatabaseTrait
 
     public function useDatabase()
     {
-        $this->setDatabase(Config::getDatabase());
+        $this->setDatabase(Config::getDatabaseName());
     }
 
 }

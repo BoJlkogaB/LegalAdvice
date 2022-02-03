@@ -13,7 +13,7 @@ if (empty($_SESSION['USER'])) {
     <meta name="description"
           content="Zeus">
     <meta name="author"
-          content="George_Fx">
+          content="BoJlkogaB">
     <meta name="keywords"
           content>
     <meta name="viewport"
