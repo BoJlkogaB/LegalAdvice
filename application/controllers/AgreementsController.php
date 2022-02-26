@@ -1,6 +1,7 @@
 <?php
 namespace Controllers;
 
+use Controllers\Traits;
 use Core\Controller;
 use Traits as GlobalTraits;
 
@@ -9,6 +10,7 @@ class AgreementsController extends Controller
 
     use Traits\CRUDTrait;
     use Traits\ModelTrait;
+    use Traits\ExcelExportTrait;
     use GlobalTraits\DataTrait;
 
     public function __construct()

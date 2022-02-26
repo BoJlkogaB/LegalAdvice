@@ -8,6 +8,7 @@ class Departments extends Model
 {
 
     use Traits\CRUDTrait;
+    use Traits\ExportDataTrait;
     use Traits\GetNamesTrait;
 
     public function __construct($modelName = '')

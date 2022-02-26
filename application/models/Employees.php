@@ -9,6 +9,7 @@ class Employees extends Model
 {
 
     use Traits\CRUDTrait;
+    use Traits\ExportDataTrait;
 
     public function __construct($modelName = '')
     {

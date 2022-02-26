@@ -9,6 +9,7 @@ class Agreements extends Model
 {
 
     use Traits\CRUDTrait;
+    use Traits\ExportDataTrait;
     use Traits\GetNumbersTrait;
 
     public function __construct($modelName = '')

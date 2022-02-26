@@ -9,6 +9,7 @@ class PartnersController extends Controller
 
     use Traits\CRUDTrait;
     use Traits\ModelTrait;
+    use Traits\ExcelExportTrait;
     use GlobalTraits\DataTrait;
 
     public function __construct()

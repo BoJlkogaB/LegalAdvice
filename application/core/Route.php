@@ -12,7 +12,7 @@ class Route
           count($routes) <= 2 ? null : $routes[2]);
     }
 
-    public static function ErrorPage404()
+    public static function errorPage404()
     {
         header('Location: /404/');
         //        Реализовать рендер и сделать реализацию не только 404 ошибку

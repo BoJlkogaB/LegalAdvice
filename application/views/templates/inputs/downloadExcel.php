@@ -1,3 +1,3 @@
-<button type="button" class="btn btn-sm btn-outline-secondary">
+<a href="/<?= $this->getModelName() ?>/excelExport/" class="btn btn-sm btn-outline-secondary">
     Excel
-</button>
+</a>
