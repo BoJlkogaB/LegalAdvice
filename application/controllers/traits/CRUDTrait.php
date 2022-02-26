@@ -49,9 +49,18 @@ trait CRUDTrait
     public function deleteAction()
     {
         $this->getModel()->deleteItem($_GET['id'], $this->getDatabase());
-        if ($_SERVER['HTTP_REFERER']) {
+        //    TODO: Через ajax удалять запись на сервере и из DOM у клиента, чтобы убрать редирект
+        if (isset($_SERVER['HTTP_REFERER'])) {
             header('Location: /'.$this->getModelName().'/');
         }
+    }
+
+    public function getDataAction()
+    {
+        $this->setData([
+          'DATA' => $this->getModel()->getData($this->getDatabase()),
+        ]);
+        $this->useAdminView();
     }
 
 }

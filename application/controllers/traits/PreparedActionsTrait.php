@@ -23,6 +23,7 @@ trait PreparedActionsTrait
         }
         $this->setData($data);
         $this->getModel()->createItem($this->getData(), $this->getDatabase());
+        //    TODO: Через ajax создавать запись на сервере и через DOM у клиента, чтобы убрать редирект
         if ($_SERVER['HTTP_REFERER']) {
             header('Location: /'.$this->getModelName().'/');
         }
@@ -50,6 +51,7 @@ trait PreparedActionsTrait
     {
         $this->setData($data);
         $this->getModel()->updateItem($this->getData(), $this->getDatabase());
+        //    TODO: Через ajax изменять запись на сервере и через DOM у клиента, чтобы убрать редирект
         if (@$_SERVER['HTTP_REFERER'] != null) {
             header("Location: ".$_SERVER['HTTP_REFERER']);
         }
