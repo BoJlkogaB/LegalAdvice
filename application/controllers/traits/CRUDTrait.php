@@ -60,7 +60,7 @@ trait CRUDTrait
         $this->setData([
           'DATA' => $this->getModel()->getData($this->getDatabase()),
         ]);
-        $this->useAdminView();
+        echo json_encode($this->getData());
     }
 
 }
