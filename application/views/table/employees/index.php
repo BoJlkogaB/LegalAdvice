@@ -36,7 +36,7 @@
             </thead>
             <tbody>
             <?php foreach ($data['DATA'] as $item): ?>
-                <tr>
+                <tr class="context-menu" data-id="<?= $item['id'] ?>">
                     <td><?= $item['id'] ?></td>
                     <td><?= $item['name'][0].' '.$item['surname'].' '.$item['lastname'] ?></td>
                     <td><?= $item['phone'] ?></td>

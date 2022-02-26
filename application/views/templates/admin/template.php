@@ -33,15 +33,24 @@ if (empty($_SESSION['USER'])) {
           href="https://bootstrap5.ru/css/examples/dashboard.css">
     <link rel="stylesheet"
           href="https://bootstrap5.ru/css/examples/checkout-form-validation.css">
+    <link rel="stylesheet"
+          type="text/css"
+          href="/resources/styles/css/style-admin.css">
 </head>
 <body>
 <div class="wrapper">
     <?php
     require_once($_SERVER["DOCUMENT_ROOT"].'/application/views/templates/admin/header.php');
     require_once($_SERVER["DOCUMENT_ROOT"].'/application/views/'.$contentView);
-    require_once($_SERVER["DOCUMENT_ROOT"].'/application/views/templates/admin/header.php');
+    require_once($_SERVER["DOCUMENT_ROOT"].'/application/views/templates/admin/footer.php');
     ?>
 </div>
+<div class="context-menu-open" data-model-name="<?= $this->getModelName() ?>">
+    <ul>
+        <li><a class="context-menu-link" id="context-menu-delete" href="">Удалить</a></li>
+    </ul>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.24.1/feather.min.js"
         integrity="sha384-EbSscX4STvYAC/DxHse8z5gEDaNiKAIGW+EpfzYTfQrgIlHywXXrM9SUIZ0BlyfF"
         crossorigin="anonymous"></script>
@@ -54,5 +63,6 @@ if (empty($_SESSION['USER'])) {
         src="https://www.googletagmanager.com/gtag/js?id=UA-179173139-1"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
 <script src="https://bootstrap5.ru/css/examples/checkout-form-validation.js"></script>
+<script src="/resources/scripts/scripts-admin.js"></script>
 </body>
 </html>
