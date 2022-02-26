@@ -27,8 +27,10 @@ trait RequestCollectorTrait
         return substr($query, 0, -2)
           ." FROM ".$this->getModelName()
           .($search ? ' WHERE `id` = :id' : '')
+          // TODO: усовершенствовать поиск для всех полей
+          .(isset($_GET['searchName']) ? ' WHERE `name` LIKE "%'.$_GET['searchName'].'%"' : '')
           // TODO: усовершенствовать сортировку для всех полей
-          .(isset($_GET['sortID']) ? ' ORDER BY id '.$_GET['sortID'] : '');
+          .(isset($_GET['sortID']) ? ' ORDER BY `id` '.$_GET['sortID'] : '');
     }
 
     private function getComplexSelectQuery($data, $search = false): string
@@ -51,7 +53,10 @@ trait RequestCollectorTrait
 
         return $firstQueryPart.$secondQueryPart
           .($search ? ' WHERE `id` = :id' : '')
-          .(isset($_GET['sortID']) ? ' ORDER BY id '.$_GET['sortID'] : '');
+          // TODO: усовершенствовать поиск для всех полей
+          .(isset($_GET['searchName']) ? ' WHERE `name` LIKE "%'.$_GET['searchName'].'%"' : '')
+          // TODO: усовершенствовать сортировку для всех полей
+          .(isset($_GET['sortID']) ? ' ORDER BY `id` '.$_GET['sortID'] : '');
     }
 
     public function getCreateQuery($data): string

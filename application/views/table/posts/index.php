@@ -17,7 +17,11 @@
     <!--            <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="3090" height="1304"-->
     <!--                    style="display: block; height: 652px; width: 1545px;"></canvas>-->
 
-    <h2>Таблица "Должности"</h2>
+    <div class="input-group mb-3">
+        <h2 class="d-block">Таблица "Должности"</h2>
+        <?php $this->render('searchName'); ?>
+    </div>
+
     <div class="table-responsive">
         <table class="table table-striped table-sm">
             <thead>
