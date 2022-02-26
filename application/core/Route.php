@@ -39,7 +39,7 @@ class Route
 
     private static function getAction($controller, $route)
     {
-        $action = $route
+        $action = ($route && $route[0] != '?')
           ? $route.'Action'
           : 'indexAction';
         if (method_exists($controller, $action)) {

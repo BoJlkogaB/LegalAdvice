@@ -22,7 +22,7 @@
         <table class="table table-striped table-sm">
             <thead>
             <tr>
-                <th>#</th>
+                <th><a href="" id="sortID">#</a></th>
                 <th>Наименование</th>
                 <th><a class="text-decoration-none"
                        href="/<?= $this->getModelName() ?>/new/">Создать</a>

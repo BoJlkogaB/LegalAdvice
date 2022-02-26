@@ -22,7 +22,8 @@
         <table class="table table-striped table-sm">
             <thead>
             <tr>
-                <th>#</th>
+                <?php // TODO: добавить красивое оформление сортировки и масштабировать до всех полей ?>
+                <th><a href="" id="sortID">#</a></th>
                 <th>Заказчик</th>
                 <th>Телефон</th>
                 <th>Номер договора</th>

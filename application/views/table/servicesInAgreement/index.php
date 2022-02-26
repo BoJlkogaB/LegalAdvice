@@ -22,7 +22,7 @@
         <table class="table table-striped table-sm">
             <thead>
             <tr>
-                <th>#</th>
+                <th><a href="" id="sortID">#</a></th>
                 <th>Номер договора</th>
                 <th>Наименование услуги</th>
                 <th><a class="text-decoration-none"
