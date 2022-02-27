@@ -5,12 +5,12 @@
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group mr-2">
                 <?php
-                $this->render('downloadWord');
+//                $this->render('downloadWord');
                 $this->render('downloadExcel');
-                $this->render('downloadPdf');
+//                $this->render('downloadPdf');
                 ?>
             </div>
-            <?php $this->render('calendar') ?>
+<!--            --><?php //$this->render('calendar') ?>
         </div>
     </div>
 
