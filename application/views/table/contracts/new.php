@@ -9,7 +9,7 @@
                     <?php
                     $this->render('partnersList');
                     $this->render('documentNumber');
-                    $this->render('dateOfSinging');
+                    $this->render('dateOfSigning');
                     ?>
                 </div>
                 <hr class="my-4">

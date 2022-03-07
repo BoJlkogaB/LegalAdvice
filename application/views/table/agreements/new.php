@@ -9,8 +9,7 @@
                     <?php
                     $this->render('customersList');
                     $this->render('documentNumber');
-                    /** TODO: исправить dateOfSinging на dateOfSigning */
-                    $this->render('dateOfSinging');
+                    $this->render('dateOfSigning');
                     ?>
                 </div>
                 <hr class="my-4">

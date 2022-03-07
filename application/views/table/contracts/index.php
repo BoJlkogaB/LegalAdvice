@@ -42,6 +42,7 @@
                     <td><?= $item['name'] ?></td>
                     <td><?= $item['phone'] ?></td>
                     <td><?= $item['number'] ?></td>
+                    <?php /** TODO: исправить date_of_singing на date_of_signing */?>
                     <td><?= $item['date_of_singing'] ?></td>
                     <td><a class="text-decoration-none"
                            href="/<?= $this->getModelName() ?>/edit/?id=<?= $item['id'] ?>">Редактировать</a>

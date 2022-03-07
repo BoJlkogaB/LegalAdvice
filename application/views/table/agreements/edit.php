@@ -11,7 +11,7 @@
                     $this->render('invisibleID');
                     $this->render('customersList');
                     $this->render('documentNumber');
-                    $this->render('dateOfSinging');
+                    $this->render('dateOfSigning');
                     ?>
                 </div>
                 <hr class="my-4">
