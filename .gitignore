@@ -1,0 +1,40 @@
+# Thumbnails
+**/.DS_Store
+**/Thumbs.db
+.htaccess
+
+# Editor
+/.idea/
+/.vscode/
+
+# Вспомогательные вещи для IDE
+.phpstorm.meta.php
+_ide_helper.php
+_ide_helper_models.php
+
+# Environment
+.env
+.env*
+!.env*.example
+helm/*/values.*.yaml
+
+# Cache and debugs
+**/.php_cs.cache
+**/.phpcs-cache
+**/.phpunit.result.cache
+**/npm-debug.log
+**/yarn-error.log
+helm/my/debug*.yaml
+
+# App data
+**/*.log
+# TODO: storage/
+
+# Dependencies
+/vendor/
+/node_modules/
+/helm/*/charts/
+
+# Tests & CodeStyle
+/phpcs.xml
+/phpunit.xml
