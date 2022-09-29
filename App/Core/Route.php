@@ -1,7 +1,7 @@
 <?php
 namespace App\Core;
 
-use App\Helpers\OsHelper;
+use App\Classes\Helpers\OsHelper;
 
 class Route
 {

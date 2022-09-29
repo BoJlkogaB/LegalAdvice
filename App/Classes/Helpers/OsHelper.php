@@ -1,5 +1,5 @@
 <?php
-namespace App\Helpers;
+namespace App\Classes\Helpers;
 
 class OsHelper
 {
