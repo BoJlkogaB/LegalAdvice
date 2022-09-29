@@ -1,9 +1,8 @@
 <?php
-namespace Controllers\Traits;
+namespace App\Controllers\Traits;
 
-use App\Core\Model;
 use ReflectionClass;
-use Traits;
+use App\Traits;
 
 trait ModelTrait
 {

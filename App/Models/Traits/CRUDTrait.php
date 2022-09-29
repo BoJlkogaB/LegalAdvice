@@ -1,8 +1,8 @@
 <?php
-namespace Models\Traits;
+namespace App\Models\Traits;
 
-use Database\DatabaseInterface;
-use Traits as GlobalTraits;
+use App\Classes\Database\DatabaseInterface;
+use App\Traits as GlobalTraits;
 
 trait CRUDTrait
 {

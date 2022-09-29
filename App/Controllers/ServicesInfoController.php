@@ -1,8 +1,8 @@
 <?php
 
-namespace Controllers;
+namespace App\Controllers;
 
-use Controllers\Traits\StandardViewTrait;
+use App\Controllers\Traits\StandardViewTrait;
 use App\Core\Controller;
 
 class ServicesInfoController extends Controller

@@ -1,7 +1,7 @@
 <?php
-namespace Controllers\Traits;
+namespace App\Controllers\Traits;
 
-use Export\ExcelExport;
+use App\Classes\Export\ExcelExport;
 
 trait ExcelExportTrait
 {

@@ -1,7 +1,7 @@
 <?php
-namespace Controllers\Traits;
+namespace App\Controllers\Traits;
 
-use Traits as GlobalTraits;
+use App\Traits as GlobalTraits;
 
 trait CRUDTrait
 {

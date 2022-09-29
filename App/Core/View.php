@@ -1,7 +1,7 @@
 <?php
 namespace App\Core;
 
-use Traits;
+use App\Traits;
 
 class View
 {

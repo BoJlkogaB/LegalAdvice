@@ -1,5 +1,5 @@
 <?php
-namespace Export;
+namespace App\Classes\Export;
 
 class ExcelExport implements ExportInterface
 {

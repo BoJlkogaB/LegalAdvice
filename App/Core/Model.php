@@ -1,8 +1,8 @@
 <?php
 namespace App\Core;
 
-use Database\DatabaseInterface;
-use Traits;
+use App\Classes\Database\DatabaseInterface;
+use App\Traits;
 
 abstract class Model
 {
@@ -21,7 +21,7 @@ abstract class Model
     /**
      * @description Получаем все записи
      *
-     * @param  \Database\DatabaseInterface  $database
+     * @param  \App\Classes\Database\DatabaseInterface  $database
      *
      * @return mixed
      */
@@ -31,7 +31,7 @@ abstract class Model
      * @description Получаем одну запись по $id
      *
      * @param  int  $id
-     * @param  \Database\DatabaseInterface  $database
+     * @param  \App\Classes\Database\DatabaseInterface  $database
      *
      * @return mixed
      */
@@ -41,7 +41,7 @@ abstract class Model
      * @description Создаём новую запись
      *
      * @param  array  $data
-     * @param  \Database\DatabaseInterface  $database
+     * @param  \App\Classes\Database\DatabaseInterface  $database
      *
      * @return mixed
      */
@@ -51,7 +51,7 @@ abstract class Model
      * @description Обновляем запись
      *
      * @param  array  $data
-     * @param  \Database\DatabaseInterface  $database
+     * @param  \App\Classes\Database\DatabaseInterface  $database
      *
      * @return mixed
      */
@@ -61,7 +61,7 @@ abstract class Model
      * @description Удаляем запись по $id
      *
      * @param  int  $id
-     * @param  \Database\DatabaseInterface  $database
+     * @param  \App\Classes\Database\DatabaseInterface  $database
      *
      * @return mixed
      */

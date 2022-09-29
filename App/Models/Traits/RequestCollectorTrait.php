@@ -1,5 +1,5 @@
 <?php
-namespace Models\Traits;
+namespace App\Models\Traits;
 
 trait RequestCollectorTrait
 {

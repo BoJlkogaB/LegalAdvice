@@ -1,9 +1,9 @@
 <?php
-namespace Controllers;
+namespace App\Controllers;
 
-use Controllers\Traits\StandardViewTrait;
+use App\Controllers\Traits\StandardViewTrait;
 use App\Core\Controller;
-use Traits as GlobalTraits;
+use App\Traits as GlobalTraits;
 
 class AuthenticationController extends Controller
 {
@@ -13,7 +13,7 @@ class AuthenticationController extends Controller
     use Traits\DatabaseTrait;
     use GlobalTraits\DataTrait;
 
-    public function beforeAction()
+    public function beforeAction(): void
     {
         $this->useDatabase();
         $this->setModelName('Authentication');

@@ -1,9 +1,9 @@
 <?php
-namespace Controllers;
+namespace App\Controllers;
 
-use Controllers\Traits;
+use App\Controllers\Traits;
 use App\Core\Controller;
-use Traits as GlobalTraits;
+use App\Traits as GlobalTraits;
 
 class AgreementsController extends Controller
 {

@@ -1,7 +1,7 @@
 <?php
-namespace Models\Traits;
+namespace App\Models\Traits;
 
-use Database\DatabaseInterface;
+use App\Classes\Database\DatabaseInterface;
 
 trait GetNamesTrait
 {

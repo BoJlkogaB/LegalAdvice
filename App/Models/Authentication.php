@@ -1,8 +1,8 @@
 <?php
-namespace Models;
+namespace App\Models;
 
-use Database\DatabaseInterface;
-use Traits as GlobalTraits;
+use App\Classes\Database\DatabaseInterface;
+use App\Traits as GlobalTraits;
 
 class Authentication
 {

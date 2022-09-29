@@ -1,5 +1,5 @@
 <?php
-namespace Traits;
+namespace App\Traits;
 
 trait DataTrait
 {

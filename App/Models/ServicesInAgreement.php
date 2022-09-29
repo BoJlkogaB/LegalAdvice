@@ -1,9 +1,9 @@
 <?php
-namespace Models;
+namespace App\Models;
 
 use App\Core\Model;
-use Database\DatabaseInterface;
-use Models\Traits;
+use App\Classes\Database\DatabaseInterface;
+use App\Models\Traits;
 
 class ServicesInAgreement extends Model
 {
@@ -19,7 +19,7 @@ class ServicesInAgreement extends Model
         ]);
     }
 
-    public function getAll(DatabaseInterface $database)
+    public function getAll(DatabaseInterface $database): array
     {
         $query = [
           $this->getModelName() => ['id'],

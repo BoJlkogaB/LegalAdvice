@@ -1,8 +1,8 @@
 <?php
-namespace Models;
+namespace App\Models;
 
 use App\Core\Model;
-use Models\Traits;
+use App\Models\Traits;
 
 class Departments extends Model
 {

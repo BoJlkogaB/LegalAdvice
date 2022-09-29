@@ -1,8 +1,8 @@
 <?php
-namespace Controllers;
+namespace App\Controllers;
 
 use App\Core\Controller;
-use Traits as GlobalTraits;
+use App\Traits as GlobalTraits;
 
 class CustomersController extends Controller
 {

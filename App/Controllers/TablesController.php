@@ -1,7 +1,7 @@
 <?php
-namespace Controllers;
+namespace App\Controllers;
 
-use Controllers\Traits\AdminViewTrait;
+use App\Controllers\Traits\AdminViewTrait;
 use App\Core\Controller;
 
 class TablesController extends Controller

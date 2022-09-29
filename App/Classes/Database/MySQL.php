@@ -1,7 +1,6 @@
 <?php
-namespace Database;
+namespace App\Classes\Database;
 
-use Config\Config;
 use PDO;
 use PDOException;
 
@@ -12,16 +11,16 @@ class MySQL implements DatabaseInterface
 
     public function __construct()
     {
-        $host = Config::getDatabaseHost();
-        $dbname = Config::getDatabaseDBName();
-        $login = Config::getDatabaseLogin();
-        $password = Config::getDatabasePassword();
+        $host = $_ENV['DATABASE_HOST'] ?: 'localhost';
+        $dbname = $_ENV['DATABASE_NAME'] ?: 'legal_advice';
+        $login = $_ENV['DATABASE_LOGIN'] ?: 'root';
+        $password = $_ENV['DATABASE_PASSWORD'] ?: '';
 
         try {
             $this->connection = new PDO("mysql:host=$host;dbname=$dbname", $login, $password);
         } catch (PDOException $e) {
             echo "Error!: ".$e->getMessage();
-            //  Убрать die() и передать обработку ошибок клиентской части
+            // TODO: Убрать die() и передать обработку ошибок клиентской части
             die();
         }
     }

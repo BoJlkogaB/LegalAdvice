@@ -1,5 +1,5 @@
 <?php
-namespace Controllers\Traits;
+namespace App\Controllers\Traits;
 
 trait PreparedActionsTrait
 {

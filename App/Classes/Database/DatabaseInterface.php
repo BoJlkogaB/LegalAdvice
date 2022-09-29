@@ -1,5 +1,5 @@
 <?php
-namespace Database;
+namespace App\Classes\Database;
 
 interface DatabaseInterface
 {

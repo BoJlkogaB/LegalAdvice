@@ -1,8 +1,7 @@
 <?php
-namespace Controllers\Traits;
+namespace App\Controllers\Traits;
 
-use Config\Config;
-use Database\DatabaseInterface;
+use App\Classes\Database\DatabaseInterface;
 
 trait DatabaseTrait
 {
@@ -22,7 +21,7 @@ trait DatabaseTrait
 
     public function useDatabase()
     {
-        $this->setDatabase(Config::getDatabaseName());
+        $this->setDatabase($_ENV['DBMS_NAME']);
     }
 
 }
