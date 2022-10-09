@@ -89,6 +89,7 @@ class Route
         $action = ($actionName && $actionName[0] != '?')
           ? $actionName.'Action'
           : 'indexAction';
+
         if (method_exists($controller, $action)) {
             $controller->beforeAction();
             $controller->$action();

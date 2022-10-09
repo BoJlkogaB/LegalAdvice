@@ -1,8 +1,8 @@
 <?php
-namespace App\Models;
+namespace App\Actions;
 
 use App\Core\Model;
-use App\Models\Traits;
+use App\Actions\Traits;
 
 class Customers extends Model
 {

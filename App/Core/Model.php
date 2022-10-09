@@ -35,10 +35,7 @@ abstract class Model
      *
      * @return mixed
      */
-    abstract public function getById(
-      int $id,
-      DatabaseInterface $database
-    ): array;
+    abstract public function getById(int $id, DatabaseInterface $database): array;
 
     /**
      * @description Создаём новую запись
@@ -48,10 +45,7 @@ abstract class Model
      *
      * @return mixed
      */
-    abstract public function create(
-      array $data,
-      DatabaseInterface $database
-    ): void;
+    abstract public function create(array $data, DatabaseInterface $database): void;
 
     /**
      * @description Обновляем запись
@@ -59,12 +53,9 @@ abstract class Model
      * @param  array  $data
      * @param  \App\Classes\Database\DatabaseInterface  $database
      *
-     * @return mixed
+     * @return void
      */
-    abstract public function update(
-      array $data,
-      DatabaseInterface $database
-    ): void;
+    abstract public function update(array $data, DatabaseInterface $database): void;
 
     /**
      * @description Удаляем запись по $id
@@ -72,7 +63,7 @@ abstract class Model
      * @param  int  $id
      * @param  \App\Classes\Database\DatabaseInterface  $database
      *
-     * @return mixed
+     * @return void
      */
     abstract public function delete(int $id, DatabaseInterface $database): void;
 

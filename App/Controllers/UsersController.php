@@ -33,8 +33,7 @@ class UsersController extends Controller
     {
         $this->setParamsData([
           'email' => $_POST['email'],
-          'password' => password_hash($_POST['password'], PASSWORD_BCRYPT,
-            ['cost' => 12]),
+          'password' => password_hash($_POST['password'], PASSWORD_BCRYPT, ['cost' => 12]),
           'role_id' => $_POST['role_id'],
         ]);
         $this->preparedCreateAction($this->getParamsData());

@@ -1,9 +1,9 @@
 <?php
-namespace App\Models;
+namespace App\Actions;
 
 use App\Core\Model;
 use App\Classes\Database\DatabaseInterface;
-use App\Models\Traits;
+use App\Actions\Traits;
 
 class Users extends Model
 {

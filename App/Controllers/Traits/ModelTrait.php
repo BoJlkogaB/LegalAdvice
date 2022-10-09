@@ -18,17 +18,16 @@ trait ModelTrait
 
     public function setModel($model)
     {
-        $model = 'Models\\'.$model;
+        $model = 'App\\Actions\\'.$model;
         $this->model = new $model($this->getModelName());
     }
 
     public function useModel()
     {
         $reflection = new ReflectionClass($this);
-        $modelName = array_slice(explode('\\',
-          substr($reflection->getName(), 0, -10)), -1)[0];
+        $modelName = array_slice(explode('\\', substr($reflection->getName(), 0, -10)), -1)[0];
         $this->setModelName($modelName);
-        $this->setModel($this->getModelName());
+        $this->setModel($modelName);
     }
 
 }

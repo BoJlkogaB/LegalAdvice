@@ -12,7 +12,7 @@ trait CRUDTrait
     use ExtraModelListItemsTrait;
     use GlobalTraits\ParamsDataTrait;
 
-    public function beforeAction()
+    public function beforeAction(): void
     {
         $this->useModel();
         $this->useDatabase();

@@ -1,5 +1,5 @@
 <?php
-namespace App\Models;
+namespace App\Actions;
 
 use App\Classes\Database\DatabaseInterface;
 use App\Classes\Traits as GlobalTraits;

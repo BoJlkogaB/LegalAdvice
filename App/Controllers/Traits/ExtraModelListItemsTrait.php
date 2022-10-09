@@ -22,7 +22,7 @@ trait ExtraModelListItemsTrait
         foreach ($this->getModelList() as $key => $item) {
             $modelName = is_int($key) ? $item : $key;
             $methodName = 'get'.(is_int($key) ? 'name' : $item).'s';
-            $model = '\Models\\'.$modelName;
+            $model = 'App\\Actions\\'.$modelName;
             ${'model'.$modelName} = new $model($modelName);
             $data[strtoupper($modelName)] = ${'model'.$modelName}->$methodName($this->getDatabase());
         }

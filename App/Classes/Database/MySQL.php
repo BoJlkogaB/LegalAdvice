@@ -42,7 +42,7 @@ class MySQL implements DatabaseInterface
         $stmt = $this->connection->prepare($query);
         $stmt->execute($params);
 
-        return $stmt->fetch(PDO::FETCH_LAZY);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     public function fetchAll($query, $params = null)
@@ -50,7 +50,7 @@ class MySQL implements DatabaseInterface
         $stmt = $this->connection->prepare($query);
         $stmt->execute($params);
 
-        return $stmt->fetchAll(PDO::FETCH_NAMED);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
 }
