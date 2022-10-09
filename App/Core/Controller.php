@@ -7,9 +7,9 @@ abstract class Controller
     /** @var View $view - объект класса View */
     private View $view;
 
-    public function __construct()
+    public function __construct(View $view)
     {
-        $this->view = new View();
+        $this->view = $view;
     }
 
     /**

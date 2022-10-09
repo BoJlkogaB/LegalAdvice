@@ -2,7 +2,7 @@
 namespace App\Controllers\Traits;
 
 use ReflectionClass;
-use App\Traits;
+use App\Classes\Traits;
 
 trait ModelTrait
 {

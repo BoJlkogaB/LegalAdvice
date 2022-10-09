@@ -10,7 +10,7 @@ trait DatabaseTrait
 
     public function setDatabase($database)
     {
-        $database = '\Database\\'.$database;
+        $database = 'App\\Classes\\Database\\'.$database;
         $this->database = new $database();
     }
 

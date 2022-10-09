@@ -1,5 +1,5 @@
 <?php
-namespace App\Traits;
+namespace App\Classes\Traits;
 
 trait ParamsDataTrait
 {

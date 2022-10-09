@@ -3,7 +3,8 @@ namespace App\Controllers;
 
 use App\Controllers\Traits;
 use App\Core\Controller;
-use App\Traits as GlobalTraits;
+use App\Classes\Traits as GlobalTraits;
+use App\Core\View;
 
 class AgreementsController extends Controller
 {
@@ -13,9 +14,8 @@ class AgreementsController extends Controller
     use Traits\ExcelExportTrait;
     use GlobalTraits\DataTrait;
 
-    public function __construct()
+    public function __construct(View $view)
     {
-        parent::__construct();
         if ($_SESSION['USER']['ROLE'] != 1 && $_SESSION['USER']['ROLE'] != 2 && $_SESSION['USER']['ROLE'] != 3 && $_SESSION['USER']['ROLE'] != 5) {
             header('Location: /tables/');
         }
@@ -23,6 +23,8 @@ class AgreementsController extends Controller
           'id', 'customer_id', 'number', 'date_of_singing',
         ]);
         $this->setModelList(['Customers']);
+
+        parent::__construct($view);
     }
 
 }

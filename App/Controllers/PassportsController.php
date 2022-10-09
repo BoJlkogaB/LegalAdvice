@@ -2,7 +2,8 @@
 namespace App\Controllers;
 
 use App\Core\Controller;
-use App\Traits as GlobalTraits;
+use App\Classes\Traits as GlobalTraits;
+use App\Core\View;
 
 class PassportsController extends Controller
 {
@@ -12,9 +13,8 @@ class PassportsController extends Controller
     use Traits\ExcelExportTrait;
     use GlobalTraits\DataTrait;
 
-    public function __construct()
+    public function __construct(View $view)
     {
-        parent::__construct();
         if ($_SESSION['USER']['ROLE'] != 1 && $_SESSION['USER']['ROLE'] != 2 && $_SESSION['USER']['ROLE'] != 4) {
             header('Location: /tables/');
         }
@@ -23,6 +23,8 @@ class PassportsController extends Controller
           'date_of_issue',
         ]);
         $this->setModelList(['Employees' => 'employee']);
+
+        parent::__construct($view);
     }
 
 }

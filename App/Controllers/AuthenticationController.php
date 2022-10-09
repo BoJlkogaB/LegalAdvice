@@ -3,7 +3,7 @@ namespace App\Controllers;
 
 use App\Controllers\Traits\StandardViewTrait;
 use App\Core\Controller;
-use App\Traits as GlobalTraits;
+use App\Classes\Traits as GlobalTraits;
 
 class AuthenticationController extends Controller
 {

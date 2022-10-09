@@ -1,13 +1,14 @@
 <?php
 namespace App\Core;
 
-use App\Traits;
+use App\Classes\Traits\ModelNameTrait;
+use App\Classes\Traits\DataTrait;
 
 class View
 {
 
-    use Traits\ModelNameTrait;
-    use Traits\DataTrait;
+    use ModelNameTrait;
+    use DataTrait;
 
     /** @var array $data - данные для View */
     private array $data;

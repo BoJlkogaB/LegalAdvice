@@ -2,7 +2,7 @@
 namespace App\Core;
 
 use App\Classes\Database\DatabaseInterface;
-use App\Traits;
+use App\Classes\Traits;
 
 abstract class Model
 {
@@ -10,7 +10,7 @@ abstract class Model
     use Traits\ModelNameTrait;
 
     /**
-     * @param string $modelName
+     * @param  string  $modelName
      */
     public function __construct(string $modelName)
     {
@@ -35,7 +35,10 @@ abstract class Model
      *
      * @return mixed
      */
-    abstract public function getById(int $id, DatabaseInterface $database): array;
+    abstract public function getById(
+      int $id,
+      DatabaseInterface $database
+    ): array;
 
     /**
      * @description Создаём новую запись
@@ -45,7 +48,10 @@ abstract class Model
      *
      * @return mixed
      */
-    abstract public function create(array $data, DatabaseInterface $database): void;
+    abstract public function create(
+      array $data,
+      DatabaseInterface $database
+    ): void;
 
     /**
      * @description Обновляем запись
@@ -55,7 +61,10 @@ abstract class Model
      *
      * @return mixed
      */
-    abstract public function update(array $data, DatabaseInterface $database): void;
+    abstract public function update(
+      array $data,
+      DatabaseInterface $database
+    ): void;
 
     /**
      * @description Удаляем запись по $id

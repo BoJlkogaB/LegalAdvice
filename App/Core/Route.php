@@ -1,7 +1,9 @@
 <?php
 namespace App\Core;
 
-use App\Classes\Helpers\OsHelper;
+use App\Classes\Containers\Container;
+use App\Classes\Containers\Exceptions\NotFoundException;
+use ReflectionException;
 
 class Route
 {
@@ -16,10 +18,18 @@ class Route
         session_start();
 
         $routes = explode('/', $_SERVER['REQUEST_URI']);
-        $controllerName = self::getControllerInstance($routes[1]);
-        $actionName = $routes[2];
+        try {
+            $controller = self::getControllerInstance($routes[1]);
 
-        self::runAction($controllerName, $actionName);
+            $actionName = $routes[2] ?? '';
+
+            self::runAction($controller, $actionName);
+        } catch (NotFoundException $e) {
+            // TODO: сделать логирование
+            Route::errorPage404();
+        } catch (ReflectionException $e) {
+            // TODO: сделать логирование
+        }
     }
 
     /**
@@ -27,19 +37,21 @@ class Route
      *
      * @param  string  $name
      *
-     * @return \App\Core\Controller|null
+     * @return Controller
+     *
+     * @throws ReflectionException
+     * @throws NotFoundException
      */
-    private static function getControllerInstance(string $name): ?Controller
+    private static function getControllerInstance(string $name): object
     {
+        $container = new Container();
+
         // TODO: проверить может ли передаваться null
         $controllerName = self::getControllerName($name);
-        $controllerPath = OsHelper::replaceDirectorySeparator('App/Controllers/'.$controllerName.'.php');
 
-        if (!file_exists($controllerPath)) {
-            Route::ErrorPage404();
-        }
-        
-        return new $controllerName;
+        $container->has($controllerName);
+
+        return $container->get($controllerName);
     }
 
     /**
@@ -51,9 +63,9 @@ class Route
      */
     private static function getControllerName(string $name): string
     {
-        return $name
-          ? str_replace('_', '', $name).'Controller'
-          : 'MainController';
+        return 'App\\Controllers\\'.($name
+            ? str_replace('_', '', $name).'Controller'
+            : 'MainController');
     }
 
     /**
@@ -70,8 +82,10 @@ class Route
         exit();
     }
 
-    private static function runAction(Controller $controller, string $actionName)
-    {
+    private static function runAction(
+      Controller $controller,
+      string $actionName
+    ) {
         $action = ($actionName && $actionName[0] != '?')
           ? $actionName.'Action'
           : 'indexAction';

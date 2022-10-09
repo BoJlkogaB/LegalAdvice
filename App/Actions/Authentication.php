@@ -2,7 +2,7 @@
 namespace App\Models;
 
 use App\Classes\Database\DatabaseInterface;
-use App\Traits as GlobalTraits;
+use App\Classes\Traits as GlobalTraits;
 
 class Authentication
 {
