@@ -19,12 +19,11 @@ trait ExtraModelListItemsTrait
     public function generationModelList(): array
     {
         $data = [];
-        foreach ($this->getModelList() as $key => $item) {
-            $modelName = is_int($key) ? $item : $key;
-            $methodName = 'get'.(is_int($key) ? 'name' : $item).'s';
+        foreach ($this->getModelList() as $item) {
+            $modelName = $item;
             $model = 'App\\Actions\\'.$modelName;
             ${'model'.$modelName} = new $model($modelName);
-            $data[strtoupper($modelName)] = ${'model'.$modelName}->$methodName($this->getDatabase());
+            $data[strtoupper($modelName)] = ${'model'.$modelName}->getNames($this->getDatabase());
         }
 
         return $data;

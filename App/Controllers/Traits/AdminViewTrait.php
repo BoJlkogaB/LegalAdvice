@@ -8,6 +8,7 @@ trait AdminViewTrait
     {
         $this->getView()->setData($this->getAll());
         $this->getView()->setModelName($this->getModelName());
+
         $this->getView()->generate(
           'table/'.$this->getModelName().'/'.$view.'.php',
           'templates/admin/template.php'
