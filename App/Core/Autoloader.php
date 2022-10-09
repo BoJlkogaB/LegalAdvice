@@ -3,7 +3,7 @@ namespace App\Core;
 
 use App\Classes\Helpers\OsHelper;
 
-require_once 'App/Classes/Helpers/OsHelper.php';
+//require_once 'App/Classes/Helpers/OsHelper.php';
 
 class Autoloader
 {
